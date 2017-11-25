@@ -17,7 +17,10 @@
   },
   "homepage": "https://github.com/xmyxm/commtools#readme",
   "dependencies": {
+    "ejs": "^2.5.7",
+    "koa": "^2.4.1",
     "moment": "^2.19.2",
+    "open": "0.0.5",
     "winston": "^2.4.0"
   }
 }
