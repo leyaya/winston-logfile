@@ -1,0 +1,23 @@
+{
+  "name": "commtools",
+  "version": "1.0.0",
+  "description": "常用工具代码",
+  "main": "bower-reply.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xmyxm/commtools.git"
+  },
+  "author": "xmyxm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xmyxm/commtools/issues"
+  },
+  "homepage": "https://github.com/xmyxm/commtools#readme",
+  "dependencies": {
+    "moment": "^2.19.2",
+    "winston": "^2.4.0"
+  }
+}
