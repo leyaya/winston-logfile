@@ -3,7 +3,7 @@ module.exports.detailtemp = function (data) {
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>统计结果</title>
+	<title>${data.title}</title>
 	<style type="text/css">
 		*{
 			padding: 0;
@@ -15,8 +15,8 @@ module.exports.detailtemp = function (data) {
 		}
 
 		.title{
-		    height: 40px;
-		    line-height: 40px;
+		    height: 44px;
+		    line-height: 44px;
 		    text-align: center;
 		    font-size: 16px;
 		    font-weight: bold;
@@ -25,7 +25,7 @@ module.exports.detailtemp = function (data) {
 		}
 
 		.arylist{
-			margin: 8px 0px;
+			
 		}
 
 		.arylist .item{
@@ -65,8 +65,11 @@ module.exports.detailtemp = function (data) {
 			width: 108px;
 		}
 
-		.pb10{
+		.head{
 			padding-bottom: 10px;
+			padding-top: 10px;
+			background: #f6f8f9;
+			border: none!important;
 		}
 	</style>
 </head>
@@ -75,7 +78,7 @@ module.exports.detailtemp = function (data) {
 		<header class="title">${data.title}</header>
 		<div class="content">
 			<ul class="arylist">
-				<li class="item pb10">
+				<li class="item head">
 					<div class="infotitle wth108">搜索关键词</div>
 					<div class="infotitle">各城市搜索量</div>
 					<div class="infotitle wth108 center">合计搜索量</div>
