@@ -1,4 +1,4 @@
-module.exports.detailtemp = function () {
+module.exports.detailtemp = function (data) {
 	return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,7 +72,7 @@ module.exports.detailtemp = function () {
 </head>
 <body>
 	<div class="main">
-		<header class="title">日志列表</header>
+		<header class="title">${data.title}</header>
 		<div class="content">
 			<ul class="arylist">
 				<li class="item pb10">
@@ -80,29 +80,24 @@ module.exports.detailtemp = function () {
 					<div class="infotitle">各城市搜索量</div>
 					<div class="infotitle wth108 center">合计搜索量</div>
 				 </li>
-				 <% for(let key in gather){%>
-				 	<li class = "item">
-						<div class="dishname wth108"><%= key %></div>
+				 <% sortAry.map(item => {%>
+					<li class = "item">
+						<div class="dishname wth108"><%= item.key %></div>
 						<div class="cityname">
-							<% let count = 0;%>
-							<% for(let city in gather[key]) {%>
+							<% item.citylist.map(obj =>{%>
 								<div>
-									<%= city + gather[key][city]['count'] %>
+									<%= obj.cityname + obj.count %>
 								</div>
-								<% count += gather[key][city]['count'] %>
-							<% } %>
+							<% })%>
 						</div>
 						<div class="count wth108 center">
-							<%= count %>
+							<%= item.count %>
 						</div>
 					</li>
-				 <% } %>
+				 <%})%>
 			</ul>
 		</div>
 	</div>
-	<script type="text/javascript">
-		
-	</script>
 </body>
 </html>`;
 }
