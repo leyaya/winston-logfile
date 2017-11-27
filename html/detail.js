@@ -57,12 +57,17 @@ module.exports.detailtemp = function (data) {
 			text-align: center;
 		}
 
+		.keyratio{
+			flex: 1;
+			text-align: center;
+		}
+
 		.center{
 			text-align: center;
 		}
 
-		.wth108{
-			width: 108px;
+		.wid20{
+			width: 20%;
 		}
 
 		.head{
@@ -70,6 +75,9 @@ module.exports.detailtemp = function (data) {
 			padding-top: 10px;
 			background: #f6f8f9;
 			border: none!important;
+		}
+		.citytitle{
+			flex:1;
 		}
 	</style>
 </head>
@@ -79,21 +87,23 @@ module.exports.detailtemp = function (data) {
 		<div class="content">
 			<ul class="arylist">
 				<li class="item head">
-					<div class="infotitle wth108">搜索关键词</div>
-					<div class="infotitle">各城市搜索量</div>
-					<div class="infotitle wth108 center">合计搜索量</div>
+					<div class="infotitle wid20">搜索关键词</div>
+					<div class="infotitle citytitle center">各城市搜索量</div>
+					<div class="infotitle wid20 center">菜品关键字匹配率</div>
+					<div class="infotitle wid20 center">合计搜索量</div>
 				 </li>
 				 <% sortAry.map(item => {%>
 					<li class = "item">
-						<div class="dishname wth108"><%= item.key %></div>
+						<div class="dishname wid20"><%= item.key %></div>
 						<div class="cityname">
 							<% item.citylist.map(obj =>{%>
 								<div>
-									<%= obj.cityname + obj.count %>
+									<%= obj.cityname + obj.count +  ' 菜品城市匹配率：'  + obj.urlstatus + '/' + obj.count + '=' + (obj.urlstatus/obj.count).toFixed(2)*100 + '%' %>
 								</div>
 							<% })%>
 						</div>
-						<div class="count wth108 center">
+						<div class="keyratio"><%= item.keycount + '/' + item.count + '=' + (item.keycount/item.count).toFixed(2)*100 + '%' %></div>
+						<div class="count wid20 center">
 							<%= item.count %>
 						</div>
 					</li>
