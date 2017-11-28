@@ -37,7 +37,6 @@ module.exports.indextemp = function (data) {
 		}
 
 		.filename,.listtitle{
-			width: 200px;
 			text-decoration: none;
 		}
 
@@ -92,7 +91,11 @@ module.exports.indextemp = function (data) {
 				 <% for(let i=0,l=arylist.length;i<l;i++ ) {%>
 				 	<li class="item">
 					<a class="filename" href="/detail?name=<%= arylist[i] %>"><%= arylist[i] %></a>
-					<input data-name = "<%= arylist[i] %>" checked="true" name="itemcheck" class="checkbtn" type="checkbox" />
+					<div>
+						<a href = "/brief?name=<%= arylist[i] %>">简要信息</a>
+						<a href = "/detail?name=<%= arylist[i] %>">详情信息</a>
+						<input data-name = "<%= arylist[i] %>" checked="true" name="itemcheck" class="checkbtn" type="checkbox" />
+					</div>
 				 	</li>
 				 <% } %>
 			</ul>
