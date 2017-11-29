@@ -100,7 +100,11 @@ module.exports.indextemp = function (data) {
 				 	</li>
 				 <% } %>
 			</ul>
-			<div class="btnarea"><a id="btnsend" class="sumitbtn">开始统计</a></div>
+			<div class="btnarea">
+				<a id="btnsend" class="sumitbtn">统计详细信息</a>
+				<a id="btnsendbrief" class="sumitbtn">统计简略信息</a>
+				<a id="btnsendempty" class="sumitbtn">统计不匹配信息</a>
+			</div>
 		</div>
 	</div>
 	<script type="text/javascript">
@@ -112,7 +116,7 @@ module.exports.indextemp = function (data) {
 			})
 		})
 
-		$("#btnsend").on('click', function(){
+		function goto(page){
 			const ary = $('input[name="itemcheck"]');
 			let list = [];
 			if(ary && ary.length){
@@ -126,7 +130,19 @@ module.exports.indextemp = function (data) {
 				alert('请选择要统计的文件！');
 				return
 			}
-			window.location.href = window.location.origin + '/detail?name=' + list.join(';');
+			window.location.href = window.location.origin + '/' +page + '?name=' + list.join(';');
+		}
+
+		$("#btnsend").on('click', function(){
+			goto('detail');
+		})
+
+		$("#btnsendbrief").on('click', function(){
+			goto('brief');
+		})
+
+		$("#btnsendempty").on('click', function(){
+			goto('empty');
 		})
 	</script>
 </body>

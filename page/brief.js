@@ -36,12 +36,13 @@ module.exports.brief = async function (ctx) {
 					++dishItem.keycount;
 					let hashcity = dishItem.hashcity;
 					if (!hashcity[obj.cityname]) {
-						hashcity[obj.cityname] = '';
-						++dishItem.citycount;
+						hashcity[obj.cityname] = true;
+						++hashcity.citycount;
 					}
 				} else {
-					let keyobj = { keystatus: obj.keystatus, keycount: obj.keystatus, citycount: 1, hashcity: {} };
-					keyobj.hashcity[obj.cityname] = '';
+					let keyobj = { keystatus: obj.keystatus, keycount: obj.keystatus, hashcity: {} };
+					keyobj.hashcity[obj.cityname] = true;
+					keyobj.hashcity.citycount = 1;
 					gather[obj.keyword] = keyobj;
 				}
 			}
@@ -49,7 +50,7 @@ module.exports.brief = async function (ctx) {
 		let sortAry = [], keyworkcategory = 0, valid = 0, searchcount = 0;
 		for (let key in gather) {
 			let keycount = gather[key]['keycount'];
-			let citycount = gather[key]['citycount'];
+			let citycount = gather[key]['hashcity']['citycount'];
 			let keystatus = gather[key]['keystatus'];
 			++keyworkcategory;
 			valid += keystatus;
@@ -62,7 +63,7 @@ module.exports.brief = async function (ctx) {
 		Data = { sortAry: sortAry, valid: valid, keyworkcategory: keyworkcategory, searchcount: searchcount };
 		datacache.setCache(ctx.url, Data, 10 * 60);
 	}
-	const html = brieftemp({ title: '日志统计结果' });
+	const html = brieftemp({ title: '简要信息统计结果' });
 	Data.dataTime = Date.now() - start1;
 	const start2 = Date.now();
 	ctx.body = ejs.render(html, Data);

@@ -45,6 +45,9 @@ module.exports.detail = async function (ctx) {
 						let city = {};
 						dishItem[obj.cityname] = { count: 1, urlstatus: obj.urlstatus, shopcount: obj.shopcount };
 					}
+					if(obj.keystatus){
+						dishItem.keystatus = obj.keystatus;
+					}
 				} else {
 					let cityobj = { keystatus: obj.keystatus };
 					cityobj[obj.cityname] = { count: 1, urlstatus: obj.urlstatus, shopcount: obj.shopcount };
@@ -80,7 +83,7 @@ module.exports.detail = async function (ctx) {
 		Data = { sortAry: sortAry, keyworkcategory: keyworkcategory, searchcount: searchcount, keysuscount: keysuscount };
 		datacache.setCache(ctx.url, Data, 10 * 60);
 	}
-	const html = detailtemp({ title: '日志统计结果' });
+	const html = detailtemp({ title: '详细信息统计结果' });
 	Data.dataTime = Date.now() - start1;
 	const start2 = Date.now();
 	ctx.body = ejs.render(html, Data);
