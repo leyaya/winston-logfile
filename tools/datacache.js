@@ -22,7 +22,18 @@ module.exports = {
 		if (typeof second != 'number' || second < 0) second = 0;
 		Data.set(key, { val: val, time: Date.now(), expire: second });
 		return status;
-	}
+	},
+	deleteCache(key) => {
+		key = formatKey(key);
+		if (!key || !Data.has(key)) return;
+		return Data.delete(key);//true;boole
+	},
+	clearCache() =>{
+		Data.clear();
+	},
+	getAllKey() =>{
+		return Data.keys()
+	} 
 }
 
 function formatKey(key) {
