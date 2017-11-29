@@ -23,15 +23,15 @@ module.exports = {
 		Data.set(key, { val: val, time: Date.now(), expire: second });
 		return status;
 	},
-	deleteCache(key) => {
+	deleteCache : (key) => {
 		key = formatKey(key);
 		if (!key || !Data.has(key)) return;
 		return Data.delete(key);//true;boole
 	},
-	clearCache() =>{
+	clearCache : () =>{
 		Data.clear();
 	},
-	getAllKey() =>{
+	getAllKey : () =>{
 		return Data.keys()
 	} 
 }
