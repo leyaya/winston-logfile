@@ -1,12 +1,12 @@
 const Koa = require('koa');
 const path = require('path');
 const open = require("open");
-const { brieftemp } = require('../html/brief.js');
-const detailpage = require('../page/detail.js').detail;
-const indexpage = require('../page/index.js').index;
-const briefpage = require('../page/brief.js').brief;
-const emptypage = require('../page/empty.js').empty;
-const datacache = require('../tools/datacache.js');
+const { brieftemp } = require('./html/brief.js');
+const detailpage = require('./page/detail.js').detail;
+const indexpage = require('./page/index.js').index;
+const briefpage = require('./page/brief.js').brief;
+const emptypage = require('./page/empty.js').empty;
+const datacache = require('./tools/datacache.js');
 
 const app = new Koa();
 
