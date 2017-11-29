@@ -92,8 +92,9 @@ module.exports.indextemp = function (data) {
 				 	<li class="item">
 					<a class="filename" href="/detail?name=<%= arylist[i] %>"><%= arylist[i] %></a>
 					<div>
-						<a href = "/brief?name=<%= arylist[i] %>">简要信息</a>
-						<a href = "/detail?name=<%= arylist[i] %>">详情信息</a>
+						<a class="filename" href = "/empty?name=<%= arylist[i] %>">不匹配信息</a>
+						<a class="filename" href = "/brief?name=<%= arylist[i] %>">简要信息</a>
+						<a class="filename" href = "/detail?name=<%= arylist[i] %>">详情信息</a>
 						<input data-name = "<%= arylist[i] %>" checked="true" name="itemcheck" class="checkbtn" type="checkbox" />
 					</div>
 				 	</li>
@@ -131,3 +132,8 @@ module.exports.indextemp = function (data) {
 </body>
 </html>`;
 }
+
+
+
+
+

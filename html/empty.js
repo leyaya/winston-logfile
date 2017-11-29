@@ -1,4 +1,4 @@
-module.exports.detailtemp = function (data) {
+module.exports.emptytemp = function (data) {
 	return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -108,26 +108,19 @@ module.exports.detailtemp = function (data) {
 			<ul class="arylist">
 				<li class="item head">
 					<div class="infotitle wid20">搜索关键词种类(<%= keyworkcategory %>)</div>
-					<div class="infotitle citytitle center">详情[城市统计 , 城市菜商户统计 , url成功率]</div>
-					<div class="infotitle wid20 center">关键字匹配率(<%= (keysuscount/keyworkcategory).toFixed(2)*100 + '%' %>)</div>
+					<div class="infotitle citytitle center">城市类别总数</div>
+					<div class="infotitle wid20 center">关键字匹配率(<%= (valid/keyworkcategory).toFixed(2)*100 + '%' %>)</div>
 					<div class="infotitle wid20 center">合计搜索量(<%= searchcount %>)</div>
 				 </li>
 				 <% sortAry.map(item => {%>
 					<li class = "item">
 						<div class="dishname wid20"><%= item.key %></div>
-						<div class="cityname">
-							<% item.citylist.map(obj =>{%>
-								<div class="center">
-								<a title="<%= obj.cityname %>" class="cname"><%= obj.cityname %></a>
-								<span class="ccount"><%= obj.count %></span>
-								<span class="ccount"><%= obj.shopcount %></span>
-								<span class="ccount"><%= (obj.urlstatus/obj.count).toFixed(2)*100 + '%' %></span>
-								</div>
-							<% })%>
+						<div class="cityname center">
+							<%= item.citycount %>
 						</div>
-						<div class="keyratio"><%= (item.keystatus/1).toFixed(2)*100 + '%' %></div>
+						<div class="keyratio"><%= item.keystatus %></div>
 						<div class="count wid20 center">
-							<%= item.count %>
+							<%= item.keycount %>
 						</div>
 					</li>
 				 <%})%>
