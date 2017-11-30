@@ -36,6 +36,10 @@ module.exports.indextemp = function (data) {
 			margin-bottom:4px;
 		}
 
+		.item:hover{
+			background : #eceee8;
+		}
+
 		.filename,.listtitle{
 			text-decoration: none;
 		}
